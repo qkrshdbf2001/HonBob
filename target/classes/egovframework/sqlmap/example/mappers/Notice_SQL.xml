@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.example.notice.service.impl.NoticeMapper">
+
+	<select id="AllNoticeList" resultType="EgovMap">
+	 /** [Notice_SQL.xml][egovframework.example.notice.service.impl.NoticeMapper.AllNoticeList][어드민 공지사항 전체][hanq] */
+	SELECT *
+	   FROM	(SELECT A.*
+			 , FLOOR((A.RNUM -1) / #{rows}) + 1 PAGE_NUMBER
+		 FROM (
+				SELECT NCODE, M.UID, NTITLE, NREGDATE, VIEWS 
+				, @ROWNUM := @ROWNUM + 1 RNUM
+			    , (SELECT COUNT(*) FROM NOTICE) TOTAL_CNT
+			    , (SELECT CEIL(COUNT(*) / #{rows}) FROM NOTICE) TOTAL_PAGE
+			  	FROM NOTICE N JOIN MEMBER M ON N.UCODE = M.UCODE
+			  	 , (SELECT @ROWNUM := 0) R 
+			)A
+		)B
+	WHERE B.PAGE_NUMBER = #{page};
+	</select>
+	
+	
+	<select id="selectNoticeList" resultType="EgovMap">
+	/** [Notice_SQL.xml][egovframework.example.notice.service.impl.NoticeMapper.selectNoticeList][공지사항 전체][hanq] */
+		SELECT NCODE, NTITLE, NUPDATE, NREGDATE, VIEWS, M.UNAME
+		  FROM NOTICE N JOIN MEMBER M ON N.UCODE = M.UCODE;
+	</select>
+	
+	<insert id="insertNotice" parameterType="HashMap">
+	/** [Notice_SQL.xml][egovframework.example.notice.service.impl.NoticeMapper.insertNotice][공지사항 저장][hanq] */
+		<selectKey keyProperty="ncode" resultType="int" order="BEFORE">
+			SELECT IFNULL(MAX(NCODE), 0) + 1 NCODE
+			FROM NOTICE
+		</selectKey>
+		INSERT INTO NOTICE 
+		(
+			NCODE
+		   ,UCODE
+		   ,NTITLE
+		   ,NCONTENT
+		   ,NREGDATE
+		   ,NUPDATE
+		   ,VIEWS
+		)
+		VALUES 
+		(
+			#{ncode}
+		   ,#{ucode}
+		   ,#{subj}
+		   ,#{textarea}
+		   ,now()	
+		   ,now()
+		   ,0
+		)
+	</insert>
+	
+	<insert id="insertNoticeImage" parameterType="HashMap">
+		<selectKey keyProperty="niseq" resultType="int" order="BEFORE">
+			SELECT IFNULL(MAX(NI_SEQ), 0) + 1 niseq
+			  FROM NIMAGE
+			 WHERE NCODE = #{ncode}
+		</selectKey>
+		/** [Notice_SQL.xml][egovframework.example.notice.service.impl.NoticeMapper.insertNoticeImage][공지사항 이미지 저장][hanq] */
+		INSERT INTO NIMAGE
+		(
+			NCODE
+		  , NI_SEQ
+		  , NIMAGE
+		)
+		VALUES
+		(
+			#{ncode}
+		  , #{niseq}
+		  , #{fileName}
+		)
+	</insert>
+	
+	<update id="addViews" parameterType="int">
+	/** [Notice_SQL.xml][egovframework.example.notice.service.impl.NoticeMapper.addViews][조회수 증가][hanq] */
+		UPDATE NOTICE SET VIEWS = VIEWS + 1 WHERE NCODE=#{ncode}
+	</update>
+	
+	<select id="selectNotice" parameterType="int" resultType="EgovMap">
+	/** [Notice_SQL.xml][egovframework.example.notice.service.impl.NoticeMapper.selectNotice][공지사항 조회][hanq] */
+		SELECT *
+		  FROM NOTICE
+		 WHERE NCODE = #{ncode}
+	</select>
+	
+	<select id="noticeImgList" parameterType="int" resultType="EgovMap">
+	/** [Notice_SQL.xml][egovframework.example.notice.service.impl.NoticeMapper.noticeImgList][이미지 조회][hanq] */
+		SELECT * 
+		  FROM NIMAGE
+		 WHERE NCODE = #{ncode}
+	</select>
+	
+	<delete id="delNotice">
+	/** [Notice_SQL.xml][egovframework.example.notice.service.impl.NoticeMapper.delNotice][공지사항 삭제][hanq] */
+		delete
+		  from notice
+		 where ncode = #{ncode}
+	</delete>
+	
+</mapper>

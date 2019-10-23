@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+ 
+<tiles-definitions>
+ 
+    <definition name=".admin" template="/WEB-INF/jsp/egovframework/example/cmmn/admin/admin-layout.jsp">
+    	<put-attribute name="head" value="/WEB-INF/jsp/egovframework/example/cmmn/admin/admin-head.jsp" />
+        <put-attribute name="loading" value="/WEB-INF/jsp/egovframework/example/cmmn/admin/admin-load.jsp" />
+        <put-attribute name="header" value="/WEB-INF/jsp/egovframework/example/cmmn/admin/admin-header.jsp" />
+        <put-attribute name="left" value="/WEB-INF/jsp/egovframework/example/cmmn/admin/admin-left.jsp" />
+        <put-attribute name="main" value="" />
+        <put-attribute name="footer" value="/WEB-INF/jsp/egovframework/example/cmmn/admin/admin-footer.jsp" />
+    </definition>
+    
+    <definition name="*/*.admin" extends=".admin">
+      <put-attribute name="main" value="/WEB-INF/jsp/egovframework/example/{1}/{2}.jsp" />
+    </definition>
+ 
+</tiles-definitions>
+

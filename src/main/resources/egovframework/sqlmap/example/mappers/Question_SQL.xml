@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="egovframework.example.question.service.impl.QuestionMapper">
+		
+	<insert id="insertQuestion">
+		<selectKey keyProperty="icode" resultType="int" order="BEFORE">
+			SELECT IFNULL(MAX(ICODE), 0) + 1 ICODE
+			FROM INQUIRY
+		</selectKey>
+		INSERT INTO INQUIRY(UCODE, ITITLE, ICONTENT, IREGDATE, ORIGINNO, GROUPORD, GROUPLAYER, ICHECK, IVIEWS)
+		VALUES (#{icode}, #{title}, #{content}, now(), #{icode}, 0, 0, 0, 0);
+	</insert>
+	
+	<select id="AllQuestionList" resultType="EgovMap">
+		SELECT ICODE, UNAME, ITITLE, ICONTENT, IREGDATE, ORIGINNO, GROUPORD, GROUPLAYER, ICHECK, IVIEWS
+		  FROM INQUIRY I JOIN MEMBER M ON I.UCODE = M.UCODE 
+	</select>
+</mapper>
