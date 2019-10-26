@@ -101,4 +101,34 @@
 		 where ncode = #{ncode}
 	</delete>
 	
+	<update id="updateNotice">
+		update notice set ncontent=#{textarea}, ntitle=#{subj} where ncode=#{ncode}
+	</update>
+	
+	<update id="updateNoticeImage">
+		<selectKey keyProperty="niseq" resultType="int" order="BEFORE">
+			SELECT IFNULL(MAX(NI_SEQ), 0) + 1 niseq
+			  FROM NIMAGE
+			 WHERE NCODE = #{ncode}
+		</selectKey>
+		INSERT INTO nimage
+		(
+			NCODE
+		  , NI_SEQ
+		  , NIMAGE
+		) 
+		VALUES 
+		(
+			#{ncode}
+		  , #{niseq}
+		  , #{fileName}
+		)
+		 ON DUPLICATE KEY UPDATE NCODE=#{ncode}, NI_SEQ=#{niseq}, NIMAGE=#{fileName};
+	</update>
+	
+	<delete id="delectNoticeImage">
+		<![CDATA[ 
+		delete from nimage where ncode=#{ncode} and NI_SEQ > #{fileCount}
+		]]>
+	</delete>
 </mapper>

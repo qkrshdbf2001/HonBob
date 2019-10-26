@@ -6,7 +6,7 @@
 	* 파일명  	: dpBnnrMng.jsp
 	* 설명	: 마케팅 관리 > 메인전시관리
 	* =========================================
- -->
+-->
 
 <script>
 	$(function() {
@@ -173,11 +173,10 @@
 	   
 	   dataList.forEach(function(e) {
 	      
-	      for (var j = 1; j < length; j++) {
-	         var cellData = e[colModelArr[j]["name"]];
-	         
-	         emptyChk = cellData === "" ? ++emptyChk : emptyChk;
-	         
+	      for (var j = 3; j < length; j++) {
+	        var cellData = e[colModelArr[j]["name"]];
+	        emptyChk = cellData === "" ? ++emptyChk : emptyChk;
+				         
 	         if (colModelArr[j]["name"] === "sortSeq" && !Valid.isNumeric(cellData)) {
 	        	 emptyChk++;
 	         }
@@ -206,11 +205,10 @@
 	      alert("변경 된 줄이 없습니다.");
 	   }
 	   
-	   return false;
+	   return true;
 	}
 	
 	function saveFn() {
-	
 	   $("#dpBnnrDtl").editCell(0, 0, false);
 	   
 	   if (!validChkFn()) {
@@ -218,6 +216,7 @@
 	   }
 	   
 	   if (!gridValidChkFn()) {
+		   alert("값체크2");
 	      return;
 	   }
 	   
@@ -227,7 +226,7 @@
 	         "dpStrtDt"  : $("[name='dpStrtDt']").val(),
 	         "dpEndDt"   : $("[name='dpEndDt']").val(),
 	         "dpYn"      : $("[name='dpYn']").val(),
-	         "bnnrMngNo" : "<c:out value='param.bnnrMngNo'/>" || ""
+	         "bnnrMngNo" : "<c:out value='${param.bnnrMngNo}'/>" || ""
 	   }
 	   
 	   var gridRowData = getSaveData();
@@ -263,7 +262,7 @@
 			
 			if ($("#" + e).hasClass("edited")) {
 				var jsonObj = $dpBnnrDtl.getRowData(e);
-				
+				alert(jsonObj.bnnrMngNo === "");
 				jsonObj.editType = jsonObj.bnnrMngNo === "" ?
 						"insert" : "update";
 				
@@ -314,7 +313,7 @@
 			url 	: "<c:url value='/saveBnnrData.do' />",
 			type	: "POST",
 			data	: {
-				"gridRowData" : JSON.stringify(jsonArray)			
+				"gridRowData" : JSON.stringify(jsonArray)	
 			},
 			
 			success : function(d) {

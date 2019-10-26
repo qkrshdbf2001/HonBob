@@ -21,7 +21,7 @@ public interface MemberService {
 
 	List<EgovMap> AllMemberList(Map<String, Object> map);
 
-	EgovMap memberInfo(String ucode);
+	EgovMap memberInfo(String uid);
 
 	EgovMap addressInfo(String ucode);
 

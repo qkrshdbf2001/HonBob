@@ -175,10 +175,65 @@
            AND DTL_SEQ 		= #{dtlSeq}
 	</update>
 	
+	<insert id="insertGridRowData" parameterType="map">
+	/** [DP_SQL.xml][egovframework.example.dp.service.impl.DpMapper.insertGridRowData][배너목록][hanq] */
+		
+		<selectKey keyProperty="dtlSeq" resultType="int" order="BEFORE">
+			SELECT IFNULL(MAX(DTL_SEQ), 0) + 1 dtlSeq
+			  FROM T_DP_BNNR_DTL
+			 WHERE BNNR_MNG_NO = #{bnnrMngNo}
+		</selectKey>			
+		INSERT INTO T_DP_BNNR_DTL
+		(
+		    BNNR_MNG_NO	
+		  , DTL_SEQ
+		  , IMG_ATTC_FILE
+		  , CNNT_URL
+		  , BNNR_TEXT
+		  , SORT_SEQ
+		  , REGR
+		  , REG_DT
+		  , UPDR
+		  , UPD_DT
+		)
+		VALUES
+		(
+		 	#{bnnrMngNo}
+		  , #{dtlSeq}
+		  , 2
+		  , #{cnntUrl}
+		  , #{bnnrText}
+		  , #{sortSeq}
+		  , 'SYSTEM'
+		  , NOW()
+		  , 'SYSTEM'
+		  , NOW()
+		)
+	
+	</insert>
+	
+	<update id="updateGridRowData" parameterType="map">
+	/** [DP_SQL.xml][egovframework.example.dp.service.impl.DpMapper.updateGridRowData][배너목록][hanq] */
+ 	
+ 	UPDATE T_DP_BNNR_DTL
+ 	   SET CNNT_URL		= #{cnnrUrl}
+ 	     , BNNR_TEXT	= #{bnnrText}
+ 	     , SORT_SEQ		= #{sortSeq}
+ 	     , UPDR			= 'SYSTEM'
+ 	     , UPD_DT		= NOW()
+ 	 WHERE DTL_SEQ		= #{dtlSeq} 
+ 	   AND BNNR_MNG_NO	= #{bnnrMngNo} 
+
+	</update>
+	
 	<delete id="deleteBnnrDtl">
-		DELETE 
-		  FROM T_DP_BNNR_DTL
-		 WHERE BNNR_MNG_NO = #{bnnrMngNo}
-		   AND DTL_SEQ     = #{dtlSeq} 
-</delete>
+	
+	DELETE 
+ 	  FROM T_DP_BNNR_DTL
+ 	 WHERE BNNR_MNG_NO = #{bnnrMngNo}
+       AND DTL_SEQ     = #{dtlSeq} 
+	
+	</delete>
+	
+	
 </mapper>

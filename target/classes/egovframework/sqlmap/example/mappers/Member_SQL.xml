@@ -10,7 +10,7 @@
 	<insert id="insertUzip" parameterType="egovframework.example.member.Member">
 		INSERT INTO
 		  UZIP (UCODE,UZIPCODE,USIN,UPOSTETCN) 
-		VALUES (#{ucode},#{zipno},#{roadaddrpart1},#{addrdetail});
+		VALUES (#{ucode},#{zipNo},#{roadAddrPart1},#{addrDetail});
 	</insert>
 	
 	<select id="selectMember" parameterType="String" resultType="EgovMap" >
@@ -77,14 +77,14 @@
     /** [Member_SQL.xml][egovframework.example.member.service.impl.MemberMapper.insertMember][회원등록][hanq] */
 		INSERT INTO MEMBER 
 		(CCODE,UID,PWD,UNAME,BIRTHDATE,SEX,EMAIL) 
-		VALUES (1, '${userid}', '${pwd}', '${name}', #{birthday}, '$[sex]', '${email}');
+		VALUES (1, '${userid}', '${pwd}', '${name}', #{birthDay}, '${sex}', '${email}');
 	</insert>
 	
 	<insert id="insertUzip" parameterType="egovframework.example.member.Member">
 	/** [Member_SQL.xml][egovframework.example.member.service.impl.MemberMapper.insertUzip][회원주소등록][hanq] */
 		INSERT INTO
 		  UZIP (UCODE,UZIPCODE,USIN,UPOSTETCN) 
-		VALUES (${ucode},${zipno},'${roadaddrpart1}','${addrdetail}');
+		VALUES (${ucode},${zipNo},'${roadAddrPart1}','${addrDetail}');
 	</insert>
 	
 	<select id="selectMember" parameterType="String" resultType="EgovMap" >
@@ -142,8 +142,9 @@
     <select id="selectMemberCode" resultType="EgovMap">
     /** [Member_SQL.xml][egovframework.example.member.service.impl.MemberMapper.selectMemberCode][권한체크][hanq] */
     	SELECT *
-    	  FROM MEMBER M JOIN CLASS C ON M.CCODE = C.CCODE
-    	 WHERE UCODE=#{ucode}
+    	  FROM MEMBER M JOIN CLASS C ON M.CCODE = C.CCODE 
+    	  	   JOIN uzip u on m.ucode = u.ucode
+    	 WHERE M.UCODE=#{ucode}
     </select>
     
     <select id="addressInfo" resultType="EgovMap">

@@ -53,8 +53,11 @@ public class ProductController {
 		model.addAttribute("product", product);
 		model.addAttribute("pageName", pageName);
 		model.addAttribute("review", review);
-		model.addAttribute("avge", review.get(0).get("avge"));
-		model.addAttribute("cnt", review.get(0).get("cnt"));
+		
+		if (!review.isEmpty()) {
+			model.addAttribute("avge", review.get(0).get("avge"));
+			model.addAttribute("cnt", review.get(0).get("cnt"));
+		} 
 		
 		return "product/productDetail.product";
 	}

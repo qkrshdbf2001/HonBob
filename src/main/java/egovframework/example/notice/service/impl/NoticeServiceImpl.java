@@ -35,15 +35,33 @@ public class NoticeServiceImpl implements NoticeService {
 		String[] fileName= fileupload.fileUpload(file, muti);
 		Map<String, Object> dtlmap = new HashMap<String, Object>();
 		
-		NoticeMapper.insertNotice(resMap);
-		
-		for (int i=0; i< fileName.length; i++) {
-			dtlmap.clear();
-			dtlmap.put("ncode", resMap.get("ncode"));
-			dtlmap.put("fileName", fileName[i]);
+		//삽입시 실행됨.
+		if (resMap.get("editType").equals("insert")) {
+			NoticeMapper.insertNotice(resMap);
 			
-			NoticeMapper.insertNoticeImage(dtlmap);
+			for (int i=0; i< fileName.length; i++) {
+				dtlmap.clear();
+				dtlmap.put("ncode", resMap.get("ncode"));
+				dtlmap.put("fileName", fileName[i]);
+				
+				NoticeMapper.insertNoticeImage(dtlmap);
+			}
+		} else if (resMap.get("editType").equals("update")) {
+			NoticeMapper.updateNotice(resMap);
+			
+			for (int i=0; i< fileName.length; i++) {
+				dtlmap.clear();
+				dtlmap.put("fileName", fileName[i]);
+				dtlmap.put("ncode", resMap.get("ncode"));
+				
+				NoticeMapper.updateNoticeImage(dtlmap);
+			}
+			
+			resMap.put("fileCount", fileName.length);
+			System.out.println(resMap);
+			NoticeMapper.delectNoticeImage(resMap);
 		}
+		
 	}
 
 	@Override

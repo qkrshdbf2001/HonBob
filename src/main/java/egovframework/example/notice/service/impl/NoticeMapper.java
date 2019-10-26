@@ -27,4 +27,8 @@ public interface NoticeMapper {
 	void delNoticeImg(int ncode);
 	void delNotice(int ncode);
 
+	void updateNotice(Map<String, Object> resMap);
+	void updateNoticeImage(Map<String, Object> dtlmap);
+	void delectNoticeImage(Map<String, Object> dtlmap);
+
 }

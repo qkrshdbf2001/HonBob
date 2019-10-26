@@ -25,4 +25,8 @@ public interface DpMapper {
 
 	void deleteBnnrDtl(Map<String, Object> value);
 
+	void insertGridRowData(Map<String, Object> value);
+
+	void updateGridRowData(Map<String, Object> value);
+
 }

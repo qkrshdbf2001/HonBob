@@ -18,7 +18,7 @@
 			height 		: "480",
 			autowidth	: true,
 			rownumbers	: true,
-			caption		: "배너관리",
+			caption		: "상품관리",
 			pager		: "#jqGridPager",
 			rowNum		: 10,
 			rowList		: [10, 20, 30],
@@ -47,7 +47,7 @@
     
 <div class="container-fluid">
     <div class="container">
-  		<h2 class="tit">회원관리</h2>
+  		<h2 class="tit">상품 관리</h2>
 		<table id="jqGrid"></table>
 		<div id="jqGridPager"></div>
 		<div class="btn-wrap mgt-20">

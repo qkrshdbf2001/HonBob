@@ -41,13 +41,23 @@ public class AdNoticeController {
 	
 	@RequestMapping("adNoticeData.do")
 	public String adNoticeData(@RequestParam String subj, 
+							   @RequestParam(defaultValue="false") String editType,
 							   @RequestParam(defaultValue="false") String textarea,
+							   @RequestParam(defaultValue="false") String ncode,
 							   @RequestParam(defaultValue="false") MultipartFile file1,
 							   @RequestParam(defaultValue="false") MultipartFile file2,
 							   @RequestParam(defaultValue="false") MultipartFile file3,
 							   @RequestParam(defaultValue="false") MultipartFile file4,
 							   MultipartHttpServletRequest muti, HttpSession session) {
 		Map<String, Object> resMap = new HashMap<String, Object>();
+		
+		//수정할때 공지사항 번호  & 타입
+		if (editType.equals("update")) {
+			resMap.put("ncode", ncode);
+		}
+		
+		resMap.put("editType", editType);
+		
 		System.out.println(session.getAttribute("ucode"));
 		resMap.put("ucode", session.getAttribute("ucode"));
 		resMap.put("subj", subj);

@@ -50,9 +50,9 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public EgovMap memberInfo(String ucode) {
+	public EgovMap memberInfo(String uid) {
 		
-		return memberMapper.selectMemberCode(ucode);
+		return memberMapper.selectMemberCode(uid);
 	}
 
 	@Override

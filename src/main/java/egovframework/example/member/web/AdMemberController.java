@@ -10,6 +10,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -78,23 +79,14 @@ public class AdMemberController {
 		//맴버 주소 등록
 		memberService.insertUzip(member);
 		
-		session.setAttribute("loginName", selectUid.get("uname"));
-		session.setAttribute("ccode", selectUid.get("ccode"));
-		
-		if (member.getUserid() == null || member.getPwd() == null || member.getName() == null 
-				|| member.getSex() == null || member.getYear() == 0 || member.getMonth() == 0 
-				|| member.getDay() == 0 || member.getEmail() == null || member.getZipNo() == null 
-				|| member.getRoadAddrPart1() == null || member.getAddrDetail() == null) {
-			return "cmmn/error";
-		}
-		
 		return "member/adMemberMng.admin";
 	}
 	
 	@RequestMapping("adMemberDtl.do")
-	public String MemberDtl(@RequestParam int ucode) {
-		System.out.println(ucode);
-		
+	public String MemberDtl(@RequestParam String ucode, Model model) {
+		EgovMap memberInfo = memberService.memberInfo(ucode);
+		System.out.println(memberInfo);
+		model.addAttribute("memberInfo", memberInfo);
 		return "member/adMemberReg.admin";
 	}
 	

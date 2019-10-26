@@ -1,18 +1,30 @@
 <%@ page contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
 <%@ include file="/WEB-INF/jsp/egovframework/example/cmmn/common_lib.jsp" %>
+
 <script>
 	function delnotice(data) {
 		location.href = "<c:url value='/adNoticeDel.do?ncode='/>" + data;
 	}
 
 	function saveFn() {
+		var $noticeData = $("#noticeData"),
+			$editType = $("#editType");
 		
 		if ($("#subj").val() == "") {
 			alert("제목을 입력해주세요");
 			false;
 		}
 		
-		$("#noticeData").submit();
+		<c:choose>
+			<c:when test='${empty param.ncode}'>
+				$editType.val("insert");
+			</c:when>
+			<c:otherwise>
+				$editType.val("update");
+			</c:otherwise>
+		</c:choose>
+		
+		$noticeData.submit();
 	}
 	
 </script>
@@ -22,6 +34,8 @@
 		<h2 class="tit">공지사항 등록</h2>
 		<div class="table-wrap type2 mgt-20">
 			<form action="adNoticeData.do" id=noticeData method="post" enctype="multipart/form-data">
+				<input type="hidden" id="editType" name="editType">
+				<input type="hidden" id="ncode" name="ncode" value="${param.ncode}">
 				<table cellspacing="0" border="1" class="tbl-type type1">
 			       	<caption>공지사항 등록</caption>
 			       	<colgroup>

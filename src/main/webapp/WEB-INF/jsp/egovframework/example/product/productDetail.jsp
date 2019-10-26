@@ -47,7 +47,6 @@
             <div class="container">
                 <ul class="breadcrumbs">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="category.html">${product.gname}</a></li>
                     <li><span>${product.pname}</span></li>
                 </ul>
             </div>
@@ -153,7 +152,16 @@
                            			</c:otherwise>
                            		</c:choose>
                            	</c:forEach>
-                            <span> 총 ${cnt}개의 리뷰</span></div>
+                            <span> 총 
+                            <c:choose>
+							    <c:when test="${cnt == null}">
+									0
+							    </c:when>
+							    <c:otherwise>
+									${cnt}
+							    </c:otherwise>
+							</c:choose>
+                            		개의 리뷰</span></div>
                             <c:forEach var="review" items="${review}">
 	                            <div class="review-item">
 	                                <h4 class="review-item_author">${review.uname}</h4>

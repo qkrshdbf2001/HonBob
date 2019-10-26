@@ -26,5 +26,5 @@ public interface MemberMapper {
 	EgovMap selectMemberCode(String ucode);
 
 	EgovMap addressInfo(String ucode);
- }
+}
  

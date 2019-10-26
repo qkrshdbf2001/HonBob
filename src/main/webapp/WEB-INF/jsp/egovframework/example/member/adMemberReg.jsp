@@ -105,13 +105,6 @@
 			return false;
 		}
 		
-		if (!regExp.test($email.val())) {
-			alert("이메일 형식이 아닙니다.");
-			$email.val("");			
-			$eamil.focus();
-			return false;
-		}
-		
 		if ($zipNo.val().length == 0) {
 			alert("주소를 등록해주세요.");
 			$zipNo.focus();
@@ -127,6 +120,13 @@
 		if ($addrDetail.val().length == 0) {
 			alert("이름을 입력해주세요");
 			$addrDetail.focus();
+			return false;
+		}
+		
+		if (!regExp.test($email.val())) {
+			alert("이메일 형식이 아닙니다.");
+			$email.val("");	
+			$eamil.focus();
 			return false;
 		}
 		
@@ -146,10 +146,10 @@
     
 <div class="container-fluid">
     <div class="container">
-    
-    <h2 class="tit">회원 등록</h2>
-		<div class="table-wrap type2 mgt-20">	
-			    <form id="memberField" name="memberField" action="adMemberData.do" method="post" onsubmit="return checkForm();">
+	    <h2 class="tit">회원 등록</h2>
+	    <form id="memberField" name="memberField" action="adMemberData.do" method="post" onsubmit="return checkForm();">
+			<div class="table-wrap type2 mgt-20">	
+				    
 				<table border="1" class="tbl-type type1">
 			       	<caption>회원 등록</caption>
 			       	<colgroup>
@@ -159,6 +159,8 @@
 			           	<col style="width:37%;"/>
 			       	</colgroup>
 			       	<tbody>
+			       	<c:choose>
+			       		<c:when test='${empty param.ucode}'>
 			           	<tr>
 			               	<th scope="row">아이디</th>
 			               	<td scope="row" colspan="3">
@@ -247,9 +249,66 @@
                                 </div>
 			               	</td>
 			           	</tr>
-			       	</tbody>
-			   	</table>
-		   	</form>
+			   		</c:when>
+			   		<c:otherwise>
+			   			<tr>
+			               	<th scope="row">아이디</th>
+			               	<td scope="row" colspan="3">
+			               		${memberInfo.uid}<br>
+			               	</td>
+			           	</tr>
+			           	<tr>
+			               	<th scope="row">등급</th>
+			               	<td scope="row" colspan="3">
+			               		${memberInfo.cname}
+			               	</td>
+			           	</tr>
+			           	<tr>
+							<th scope="row">이름</th>
+			               	<td scope="row" colspan="3">
+			               		${memberInfo.uname}
+			               	</td>
+			           	</tr>
+			           	<tr>
+							<th scope="row">생년월일</th>
+			               	<td scope="row" colspan="3">
+			               		${memberInfo.birthdate}
+			               	</td>
+			           	</tr>
+			           	<tr>
+							<th scope="row">성별</th>
+			               	<td scope="row" colspan="3">
+			               		${memberInfo.sex}
+			               	</td>
+			           	</tr>
+			           		<tr>
+							<th scope="row">본인확인이메일</th>
+			               	<td scope="row" colspan="3">
+			               		${memberInfo.email}
+			               	</td>
+			           	</tr>
+			           		<tr>
+							<th scope="row">주소</th>
+			               	<td scope="row" colspan="3">
+			               		<div class="col-sm-9">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                        	우편번호 : ${memberInfo.uzipcode}
+			                            </div>
+                                    </div>
+                                    <div class="form-group">
+                                    	간단주소 : ${memberInfo.usin}
+                                    </div>
+                                    <div class="form-group">
+										상세주소 : ${memberInfo.upostetcn}
+                                    </div>
+                                </div>
+			               	</td>
+			           	</tr>
+			   		</c:otherwise>
+			   	</c:choose>
+		       	</tbody>
+		   	</table>
 		</div>
 		
 		<div class="pd-table mgt-20">
@@ -266,10 +325,18 @@
 		<div class="btn-wrap mgt-20">
 		  	<div class="center">
 		    	<ul>
-		      		<li><button class="btn-box-06">등록</button></li>
-		      		<li><button type="button" class="btn-box-07" onclick="goback1()">취소</button></li>
+		    		<c:choose>
+		    			<c:when test="${empty param.ucode}">
+			    			<li><button class="btn-box-06">등록</button></li>
+			      			<li><button type="button" class="btn-box-07" onclick="goback1()">취소</button></li>
+		    			</c:when>
+		    			<c:otherwise>
+		      				<li><button type="button" class="btn-box-07" onclick="goback1()">확인</button></li>
+		    			</c:otherwise>
+		    		</c:choose>
 		    	</ul>
 		  	</div>
 		</div>
+		</form>
     </div>
 </div>
