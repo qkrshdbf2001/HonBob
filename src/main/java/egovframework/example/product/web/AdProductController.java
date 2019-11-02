@@ -43,7 +43,6 @@ public class AdProductController {
 			resMap.put("page",		map.get("page"));
 			resMap.put("total",		allProductList.get(0).get("totalPage"));
 			resMap.put("records",	allProductList.get(0).get("totalCnt"));
-			System.out.println(allProductList);
 		} catch (Exception e) {
 			System.out.println(e);
 		}
@@ -57,7 +56,9 @@ public class AdProductController {
 	}
 	
 	@RequestMapping("adProductData.do")
-	public String adProductData(@RequestParam(required=false) String pname, 
+	public String adProductData(@RequestParam(required=false) String pcode,
+								@RequestParam(required=false) String editType,
+								@RequestParam(required=false) String pname, 
 							    @RequestParam(required=false) int stock,
 							    @RequestParam(required=false) int price,
 							    @RequestParam(required=false) String title, 
@@ -69,16 +70,22 @@ public class AdProductController {
 							    @RequestParam(required=false) MultipartFile file4,
 							    MultipartHttpServletRequest muti) {
 		
+		
 		Map<String, Object> resMap = new HashMap<String, Object>();
 		resMap.put("pname", pname);
 		resMap.put("stock", stock);
 		resMap.put("price", price);
 		resMap.put("title", title);
 		resMap.put("groups", groups);
-		resMap.put("content", content);
+		resMap.put("pcontent", content);
+		resMap.put("editType", editType);
+
+		if (editType.equals("update")) {
+			resMap.put("pcode", pcode);
+		}
 		
 		MultipartFile[] file = {file1, file2, file3, file4};
-		
+		System.out.println(resMap);
 		try {
 			productService.saveAdProduct(resMap, file, muti);
 		} catch (Exception e) {
@@ -86,13 +93,16 @@ public class AdProductController {
 		}
 		
 		
-		return "product/adProductMng.admin";
+		return "redirect:adProductMng.do";
 	}
 	
 	@RequestMapping("adProductDtl.do")
 	public String adProductDtl(@RequestParam int pcode, Model model) {
 		EgovMap product = productService.selectProduct(pcode);
 		List<EgovMap> imgList = productService.selectProductImg(pcode);
+		
+		System.out.println(product);
+		System.out.println(imgList);
 		
 		model.addAttribute("product", product);
 		model.addAttribute("imgList", imgList);
@@ -102,8 +112,6 @@ public class AdProductController {
 	@RequestMapping("adProductDel.do")
 	public String adProductDel(@RequestParam int pcode, Model model, HttpSession session) {
 		int ccode = (int) session.getAttribute("ccode");
-		
-		System.out.println(ccode);
 		
 		if (ccode == 1) {
 			return "redirect:adProductMng.do";

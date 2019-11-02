@@ -34,17 +34,33 @@ public class ProductServiceImpl implements ProductService{
 		String[] fileName= fileupload.fileUpload(file, muti);
 		Map<String, Object> dtlmap = new HashMap<String, Object>();
 		
-		productMapper.insertProduct(resMap);
-		
-		System.out.println(dtlmap);
-		
-		for (int i=0; i< fileName.length; i++) {
-			dtlmap.clear();
-			dtlmap.put("pcode", resMap.get("pcode"));
-			dtlmap.put("fileName", fileName[i]);
-			productMapper.insertProductImage(dtlmap);
-			System.out.println(dtlmap);
+		if (resMap.get("editType").equals("insert")) {
+			productMapper.insertProduct(resMap);
 			
+			System.out.println("삽입");
+			for (int i=0; i< fileName.length; i++) {
+				dtlmap.clear();
+				dtlmap.put("pcode", resMap.get("pcode"));
+				dtlmap.put("fileName", fileName[i]);
+				productMapper.insertProductImage(dtlmap);
+				System.out.println(dtlmap);
+				
+			}
+		} else if (resMap.get("editType").equals("update")) {
+			System.out.println("수정");
+			productMapper.updateProduct(resMap);
+			
+			for (int i=0; i< fileName.length; i++) {
+				dtlmap.clear();
+				dtlmap.put("pcode", resMap.get("pcode"));
+				dtlmap.put("fileName", fileName[i]);
+				dtlmap.put("pcode", resMap.get("pcode"));
+				
+				productMapper.updateProductImage(dtlmap);
+			}
+			
+			resMap.put("fileCount", fileName.length);
+			productMapper.delectProductImage(resMap);
 		}
 	}
 
@@ -105,6 +121,11 @@ public class ProductServiceImpl implements ProductService{
 	@Override
 	public List<EgovMap> selectReview(int pcode) {
 		return productMapper.selectReview(pcode);
+	}
+
+	@Override
+	public void subProductStock(String pcode) {
+		productMapper.updateProductStock(pcode);
 	}
 
 }

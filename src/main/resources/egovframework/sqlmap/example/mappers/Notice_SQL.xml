@@ -128,7 +128,7 @@
 	
 	<delete id="delectNoticeImage">
 		<![CDATA[ 
-		delete from nimage where ncode=#{ncode} and NI_SEQ > #{fileCount}
+			delete from nimage where ncode=#{ncode} and NI_SEQ > #{fileCount}
 		]]>
 	</delete>
 </mapper>

@@ -26,19 +26,11 @@
 			
 			onCellSelect	: function(rowid, icol, cellVal, e) {
 				var pcode = $("#jqGrid").getCell(rowid, "pcode");
-				alert(pcode);
 				
 				location.href = "<c:url value='/adProductDtl.do?pcode=' />" + pcode;
 			}
 		});
 	});
-	
-	function memberUpdate(cv, op, ro) {
-		console.log("cv :", cv);
-		console.log("op :", op);
-		console.log("ro :", ro);
-		return "";
-	}
 	
 	function pageMoveFn() {
 		location.href = "<c:out value='adProductReg.do' />";

@@ -153,6 +153,7 @@ public class kakaoController {
             
             //주문 완료 체크
             productService.addProductCheck(ocode);	
+            productService.subProductStock(productInfo.get("pcode").toString());
             
             model.addAttribute("kakao", kakao);
             

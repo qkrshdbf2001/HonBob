@@ -89,7 +89,7 @@
 		  , #{stock}
 		  , #{title}
 		  , #{price}
-		  , #{content}
+		  , #{pcontent}
 		  
 		)
 	</insert>
@@ -183,4 +183,41 @@
 		delete from product
 		 where pcode=#{pcode}
 	</delete>
+	
+	<update id="updateProduct">
+		update product 
+		   set pname=#{pname}, stock=#{stock}, title=#{title}, price=#{price}, pcontent=#{pcontent}, gcode=#{groups}  
+		 where pcode=#{pcode}
+	</update>
+	
+	<update id="updateProductImage" parameterType="HashMap">
+		<selectKey keyProperty="pseq" resultType="int" order="BEFORE">
+			SELECT IFNULL(MAX(P_SEQ), 0) + 1 
+			  FROM PIMAGE
+			 WHERE PCODE = #{pcode}
+		</selectKey>
+			INSERT INTO pimage
+		(
+			pcode
+		  , p_seq
+		  , pimage
+		) 
+		VALUES 
+		(
+			#{pcode}
+		  , #{pseq}
+		  , #{fileName}
+		)
+		 ON DUPLICATE KEY UPDATE pcode=#{pcode}, p_seq=#{pseq}, pimage=#{fileName};
+	</update>
+	
+	<delete id="delectProductImage">
+		<![CDATA[ 
+			delete from pimage where pcode=#{pcode} and p_seq > #{fileCount}
+		]]>
+	</delete>
+	
+	<update id="updateProductStock">
+		update product set stock=stock-1 where pcode=#{pcode}
+	</update>
 </mapper>

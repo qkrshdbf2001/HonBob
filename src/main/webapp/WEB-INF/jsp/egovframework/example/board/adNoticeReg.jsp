@@ -91,6 +91,7 @@
 		</div>
 		
 		<div class="pd-table mgt-20">
+			<c:if test="${!empty param.ncode}">
 		  	<div class="btn-wrap-mgt-10">
 		  		<div class="right txt-right">
 			  		<ul>
@@ -98,6 +99,7 @@
 			    	</ul>
 		  		</div>
 			</div>
+			</c:if>
 			<table id="dpBnnrDtl"></table>
 		</div>
 		

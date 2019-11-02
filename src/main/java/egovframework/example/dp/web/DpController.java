@@ -33,7 +33,7 @@ public class DpController {
 	@ResponseBody
 	public String dpBnnrList(@RequestParam Map<String, Object> map) {
 		Map<String, Object> resMap = new HashMap<String, Object>();
-		
+		System.out.println(map);
 		try {
 			List<EgovMap> bnList = dpService.selectBnServiceList(map);
 			resMap.put("rows",		bnList);

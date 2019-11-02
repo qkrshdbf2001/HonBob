@@ -26,5 +26,14 @@ public interface MemberMapper {
 	EgovMap selectMemberCode(String ucode);
 
 	EgovMap addressInfo(String ucode);
+
+	void getKey(Map<String, Object> resMap);
+
+	EgovMap selectKey(Map<String, Object> resMap);
+
+	void changePwd(Map<String, Object> resMap);
+
+	EgovMap selectEamil(Map<String, Object> resMap);
+
 }
  

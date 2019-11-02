@@ -39,7 +39,7 @@ public class MemberController {
 	@RequestMapping(value="login.do", method=RequestMethod.POST)
 	public String login(@RequestParam String userid,
 						@RequestParam String pwd,
-						ModelMap model, HttpSession session) {
+						Model model, HttpSession session) {
 		
 		String msg ="";
 		HashMap<String, Object> resMap = new HashMap<String, Object>();

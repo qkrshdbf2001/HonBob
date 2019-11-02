@@ -44,6 +44,11 @@ public class ProductController {
 								 Model model) {
 		
 		EgovMap product = productService.selectProduct(pcode);
+		
+		if (product == null) {
+			return "redirect:main.do";
+		}
+		
 		List<EgovMap> imgList = productService.selectProductImg(pcode);
 		List<EgovMap> review = productService.selectReview(pcode);
 		

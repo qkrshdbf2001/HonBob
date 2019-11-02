@@ -76,8 +76,8 @@
     <insert id="insertMember" parameterType="egovframework.example.member.Member">
     /** [Member_SQL.xml][egovframework.example.member.service.impl.MemberMapper.insertMember][회원등록][hanq] */
 		INSERT INTO MEMBER 
-		(CCODE,UID,PWD,UNAME,BIRTHDATE,SEX,EMAIL) 
-		VALUES (1, '${userid}', '${pwd}', '${name}', #{birthDay}, '${sex}', '${email}');
+		(CCODE,UID,PWD,UNAME,BIRTHDATE,SEX,EMAIL, mKey) 
+		VALUES (1, '${userid}', '${pwd}', '${name}', #{birthDay}, '${sex}', '${email}','Y');
 	</insert>
 	
 	<insert id="insertUzip" parameterType="egovframework.example.member.Member">
@@ -152,6 +152,22 @@
     	SELECT UNAME, UACODE, M.UCODE, UZIPCODE, USIN, UPOSTETCN
     	  FROM UZIP U JOIN MEMBER M ON U.UCODE = M.UCODE
     	 WHERE M.UCODE=#{ucode}
+    </select>
+    
+    <update id="getKey">
+    	update member set mkey=#{key} where ucode=#{ucode}
+    </update>
+    
+    <select id="selectKey" resultType="EgovMap">
+    	select * from member where mkey=#{key} and ucode=#{ucode}
+    </select>
+    
+    <update id="changePwd">
+    	update member set mkey="Y", pwd=#{pwd} where ucode=#{ucode}
+    </update>
+    
+    <select id="selectEamil" resultType="EgovMap">
+    	select * from member where uid=#{id} and uname=#{name}
     </select>
 </mapper>
 

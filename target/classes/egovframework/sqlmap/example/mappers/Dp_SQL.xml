@@ -17,13 +17,9 @@
 					]]>
 					, BG_IMG_ATTC_FILE
 					, DP_YN
-					/**, REGR*/
 					, CA.ADMIN_NM AS REGR
-					/**, DATE_FORMAT(DATE(REG_DT), "%Y. %m. %d") REG_DT*/
 					, DATE_FORMAT(DATE(DBM.REG_DT), "%Y. %m. %d") REG_DT
 					, @ROWNUM := @ROWNUM + 1 RNUM
-					/**, (SELECT COUNT(*) FROM T_DP_BNNR_MNG) TOTAL_CNT*/
-					/**, (SELECT CEIL(COUNT(*) / {rows}) FROM T_DP_BNNR_MNG) TOTAL_PAGE*/
 				FROM T_DP_BNNR_MNG DBM
 					LEFT JOIN CM_ADMIN CA ON DBM.REGR = CA.ADMIN_NO
 					, (SELECT @ROWNUM := 0) R

@@ -20,8 +20,10 @@ public class DpServiceImpl implements DpService {
 	
 	@Override
 	public List<EgovMap> selectBnServiceList(Map<String, Object> map) throws Exception {
+		Map<String, Object> tempMap = PagingUtil.getPageCmmn(map);
+		System.out.println(tempMap);
 		
-		return dpMapper.selectBnServiceList(map);
+		return dpMapper.selectBnServiceList(tempMap);
 	}
 
 	@Override

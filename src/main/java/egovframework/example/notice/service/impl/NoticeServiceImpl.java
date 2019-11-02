@@ -46,6 +46,8 @@ public class NoticeServiceImpl implements NoticeService {
 				
 				NoticeMapper.insertNoticeImage(dtlmap);
 			}
+			
+		//수정시 실행
 		} else if (resMap.get("editType").equals("update")) {
 			NoticeMapper.updateNotice(resMap);
 			
@@ -58,7 +60,6 @@ public class NoticeServiceImpl implements NoticeService {
 			}
 			
 			resMap.put("fileCount", fileName.length);
-			System.out.println(resMap);
 			NoticeMapper.delectNoticeImage(resMap);
 		}
 		

@@ -36,4 +36,6 @@ public interface ProductService {
 
 	List<EgovMap> selectReview(int pcode);
 
+	void subProductStock(String pcode);
+
 }

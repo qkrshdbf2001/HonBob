@@ -9,6 +9,23 @@
 -->
 
 <script>
+<script>
+
+	/*---------------------------------------------------------
+	 * 화면 이벤트
+	 *-----------------------------------------------------------*/ 
+	var eventC = {
+			
+		// 이동
+		pageMove : function() {
+			var $frmTg = $("#bnnrRegFrm");
+			
+			$frmTg.attr("action", "<c:url value='/dpBnnrMngInit.do'/>");
+			
+			$frmTg.submit();
+		}
+	}
+
 	$(function() {
 	   
 	   $(".cal-wrap").each(function(index) {
@@ -420,7 +437,7 @@
 		  	<div class="center">
 		    	<ul>
 		      		<li><button type="button" class="btn-box-06" onclick="saveFn()">등록</button></li>
-		      		<li><button type="button" class="btn-box-07">취소</button></li>
+		      		<li><button type="button" class="btn-box-07" onclick="eventC.pageMove()">취소</button></li>
 		    	</ul>
 		  	</div>
 		</div>

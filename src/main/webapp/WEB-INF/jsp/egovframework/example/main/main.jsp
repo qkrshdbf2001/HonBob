@@ -10,181 +10,109 @@
                 <div class="prd-grid data-to-show-4 data-to-show-md-3 data-to-show-sm-2 prd-text-center">
                     <div class="prd prd-has-loader">
                         <div class="prd-inside">
-                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-86.jpg" alt="Tyssot 1853" class="js-prd-img lazyload"></a>
-                                <div class="label-new">NEW</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                            <div class="prd-img-area"><a href="productDetail.do?pcode=1" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-86.jpg" alt="5분 육포" class="js-prd-img lazyload"></a>
+                                <!-- <div class="label-new">NEW</div><!-- <a href="#" class="label-wishlist icon-heart js-label-wishlist"></a> -->
                                 <div class="gdw-loader"></div>
                             </div>
                             <div class="prd-info">
-                                <div class="prd-tag prd-hidemobile"><a href="#">냉장고를부탁해</a></div>
-                                <h2 class="prd-title"><a href="product.html">Tyssot 1853</a></h2>
+                                <div class="prd-tag prd-hidemobile"><a href="productDetail.do?pcode=1">냉장고를부탁해</a></div>
+                                <h2 class="prd-title"><a href="productDetail.do?pcode=1">5분 육포</a></h2>
                                 <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
-                                <div class="prd-price">
-                                    <div class="price-new">$ 120.00</div>
-                                </div>
-                                <div class="prd-hover">
-                                    <div class="prd-action">
-                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>결제하기</span></button></form>
-                                        
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="prd prd-has-loader prd-has-countdown">
                         <div class="prd-inside">
-                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-87.jpg" alt="Steel tyssot" class="js-prd-img lazyload"></a>
-                                <div class="label-sale">-20%</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                            <div class="prd-img-area"><a href="productDetail.do?pcode=2" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-87.jpg" alt="맘스테라" class="js-prd-img lazyload"></a>
+                                <!-- <div class="label-sale">-20%</div><!-- <a href="#" class="label-wishlist icon-heart js-label-wishlist"></a> -->
                                 <div class="gdw-loader"></div>
                             </div>
                             <div class="prd-info">
-                                <div class="prd-tag prd-hidemobile"><a href="#">냉장고를부탁해</a></div>
-                                <h2 class="prd-title"><a href="product.html">Steel tyssot</a></h2>
+                                <div class="prd-tag prd-hidemobile"><a href="productDetail.do?pcode=2">냉장고를부탁해</a></div>
+                                <h2 class="prd-title"><a href="productDetail.do?pcode=2">맘스테라</a></h2>
                                 <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
                                 <div class="prd-price">
-                                    <div class="price-new">$ 80.00</div>
-                                </div>
-                                <div class="prd-hover">
-                                    <div class="prd-action">
-                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>결제하기</span></button></form>
-                                        
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="prd prd-has-loader">
                         <div class="prd-inside">
-                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-88.jpg" alt="Steel Strap" class="js-prd-img lazyload"></a>
-                                <div class="label-new">NEW</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                            <div class="prd-img-area"><a href="productDetail.do?pcode=3" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-88.jpg" alt="치킨스테이크" class="js-prd-img lazyload"></a>
+                                <!-- <div class="label-new">NEW</div><!-- <a href="#" class="label-wishlist icon-heart js-label-wishlist"></a> -->
                                 <div class="gdw-loader"></div>
                             </div>
                             <div class="prd-info">
-                                <div class="prd-tag prd-hidemobile"><a href="#">집밥백선생</a></div>
-                                <h2 class="prd-title"><a href="product.html">Steel Strap</a></h2>
+                                <div class="prd-tag prd-hidemobile"><a href="productDetail.do?pcode=3">집밥백선생</a></div>
+                                <h2 class="prd-title"><a href="productDetail.do?pcode=3">치킨스테이크</a></h2>
                                 <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
-                                <div class="prd-price">
-                                    <div class="price-new">$ 130.00</div>
-                                </div>
-                                <div class="prd-hover">
-                                    <div class="prd-action">
-                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>결제하기</span></button></form>
-                                        
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="prd prd-has-loader">
                         <div class="prd-inside">
-                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-89.jpg" alt="Sport style" class="js-prd-img lazyload"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                            <div class="prd-img-area"><a href="productDetail.do?pcode=4" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-89.jpg" alt="초코브라우니" class="js-prd-img lazyload"> </a><!-- <a href="#" class="label-wishlist icon-heart js-label-wishlist"></a> -->
                                 <div class="gdw-loader"></div>
                             </div>
                             <div class="prd-info">
-                                <div class="prd-tag prd-hidemobile"><a href="#">집밥백선생</a></div>
-                                <h2 class="prd-title"><a href="product.html">Sport style</a></h2>
+                                <div class="prd-tag prd-hidemobile"><a href="productDetail.do?pcode=4">집밥백선생</a></div>
+                                <h2 class="prd-title"><a href="productDetail.do?pcode=4">초코브라우니</a></h2>
                                 <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
-                                <div class="prd-price">
-                                    <div class="price-new">$ 70.00</div>
-                                </div>
-                                <div class="prd-hover">
-                                    <div class="prd-action">
-                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>결제하기</span></button></form>
-                                        
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="prd prd-has-loader prd-has-countdown">
                         <div class="prd-inside">
-                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-90.jpg" alt="Scmei" class="js-prd-img lazyload"></a>
-                                <div class="label-sale">-12%</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                            <div class="prd-img-area"><a href="productDetail.do?pcode=5" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-90.jpg" alt="된장닭갈비" class="js-prd-img lazyload"></a>
+                                <!-- <div class="label-sale">-12%</div><!-- <a href="#" class="label-wishlist icon-heart js-label-wishlist"></a> -->
                                 <div class="gdw-loader"></div>
                             </div>
                             <div class="prd-info">
-                                <div class="prd-tag prd-hidemobile"><a href="#">삼시세끼</a></div>
-                                <h2 class="prd-title"><a href="product.html">Scmei</a></h2>
+                                <div class="prd-tag prd-hidemobile"><a href="productDetail.do?pcode=5">삼시세끼</a></div>
+                                <h2 class="prd-title"><a href="productDetail.do?pcode=5">된장닭갈비</a></h2>
                                 <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
-                                <div class="prd-price">
-                                    <div class="price-new">$ 140.00</div>
-                                    <!-- <div class="price-old">$ 160.00</div>
-                                    <div class="price-comment">You save $ 20.00</div> -->
-                                </div>
-                                <div class="prd-hover">
-                                    <div class="prd-action">
-                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>결제하기</span></button></form>
-                                        
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="prd prd-has-loader">
                         <div class="prd-inside">
-                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-91.jpg" alt="Amega" class="js-prd-img lazyload"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                            <div class="prd-img-area"><a href="productDetail.do?pcode=6" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-91.jpg" alt="손만두" class="js-prd-img lazyload"> </a><!-- <a href="#" class="label-wishlist icon-heart js-label-wishlist"></a> -->
                                 <div class="gdw-loader"></div>
                             </div>
                             <div class="prd-info">
-                                <div class="prd-tag prd-hidemobile"><a href="#">삼시세끼</a></div>
-                                <h2 class="prd-title"><a href="product.html">Amega</a></h2>
+                                <div class="prd-tag prd-hidemobile"><a href="productDetail.do?pcode=6">삼시세끼</a></div>
+                                <h2 class="prd-title"><a href="productDetail.do?pcode=6">손만두</a></h2>
                                 <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
-                                <div class="prd-price">
-                                    <div class="price-new">$ 60.00</div>
-                                </div>
-                                <div class="prd-hover">
-                                    <div class="prd-action">
-                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>결제하기</span></button></form>
-                                        
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="prd prd-has-loader prd-has-countdown">
                         <div class="prd-inside">
-                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-92.jpg" alt="Longines" class="js-prd-img lazyload"></a>
-                                <div class="label-sale">-11%</div>
-                                <div class="label-new">NEW</div><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                            <div class="prd-img-area"><a href="productDetail.do?pcode=7" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-92.jpg" alt="순대" class="js-prd-img lazyload"></a>
+                                <!-- <div class="label-sale">-11%</div> -->
+                                <!-- <div class="label-new">NEW</div><!-- <a href="#" class="label-wishlist icon-heart js-label-wishlist"></a> -->
                                 <div class="gdw-loader"></div>
                             </div>
                             <div class="prd-info">
-                                <div class="prd-tag prd-hidemobile"><a href="#">수요미식회</a></div>
-                                <h2 class="prd-title"><a href="product.html">Longines</a></h2>
+                                <div class="prd-tag prd-hidemobile"><a href="productDetail.do?pcode=7">수요미식회</a></div>
+                                <h2 class="prd-title"><a href="productDetail.do?pcode=7">순대</a></h2>
                                 <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
-                                <div class="prd-price">
-                                    <div class="price-new">$ 150.00</div>
-                                </div>
-                                <div class="prd-hover">
-                                    <div class="prd-action">
-                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>결제하기</span></button></form>
-                                        
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                     <div class="prd prd-has-loader">
                         <div class="prd-inside">
-                            <div class="prd-img-area"><a href="product.html" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-93.jpg" alt="Gold Strap" class="js-prd-img lazyload"> </a><a href="#" class="label-wishlist icon-heart js-label-wishlist"></a>
+                            <div class="prd-img-area"><a href="productDetail.do?pcode=8" class="prd-img"><img src="images/products/product-placeholder.png" data-srcset="images/products/product-93.jpg" alt="라볶이" class="js-prd-img lazyload"> </a><!-- <!-- <a href="#" class="label-wishlist icon-heart js-label-wishlist"></a> -->
                                 <div class="gdw-loader"></div>
                             </div>
                             <div class="prd-info">
-                                <div class="prd-tag prd-hidemobile"><a href="#">수요미식회</a></div>
-                                <h2 class="prd-title"><a href="product.html">Gold Strap</a></h2>
+                                <div class="prd-tag prd-hidemobile"><a href="productDetail.do?pcode=8">수요미식회</a></div>
+                                <h2 class="prd-title"><a href="productDetail.do?pcode=8">라볶이</a></h2>
                                 <div class="prd-rating prd-hidemobile"><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star fill"></i><i class="icon-star"></i></div>
-                                <div class="prd-price">
-                                    <div class="price-new">$ 50.00</div>
-                                </div>
-                                <div class="prd-hover">
-                                    <div class="prd-action">
-                                        <form action="#"><input type="hidden"> <button class="btn" data-fancybox data-src="#modalCheckOut"><i class="icon icon-handbag"></i><span>결제하기</span></button></form>
-                                        
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="more-link-wrapper text-center"><a href="#" class="btn-decor">show all</a></div>
+                <div class="more-link-wrapper text-center"><a href="productList.do" class="btn-decor">더보러가기</a></div>
             </div>
         </div>

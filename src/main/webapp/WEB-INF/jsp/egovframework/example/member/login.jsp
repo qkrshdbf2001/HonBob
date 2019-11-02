@@ -26,6 +26,28 @@
 		return true;
 	}
 	
+	function FsaveFn() {
+		var $emailFpwd  = $("#emailFpwd"),
+			$idF		= $("#idF"),
+			$nameF		= $("#nameF");
+		
+		if ($idF.val().length == 0) {
+			alert("이메일을 입력해주세요.");
+			$idF.focus();
+			return false;
+		} 
+		
+		if ($nameF.val().length == 0) {
+			alert("이메일을 입력해주세요.");
+			$nameF.focus();
+			return false;
+		} 
+		
+		$emailFpwd.attr("action", "pwdFound.do");
+		$emailFpwd.submit();
+		
+	}
+	
 </script>
 
 <div class="page-content">
@@ -46,8 +68,8 @@
                             <div class="form-wrapper">
                                 <p>이미 계정을 가지고 있다면, 로그인 해주세요</p>
                                 <form action="login.do" method="POST" onsubmit="return checkForm();">
-                                    <div class="form-group"><input type="text" class="form-control" placeholder="Your Name" id="userid" name="userid"></div>
-                                    <div class="form-group"><input type="password" class="form-control" placeholder="Password" id="pwd" name="pwd"></div>
+                                    <div class="form-group"><input type="text" class="form-control" placeholder="아이디" id="userid" name="userid"></div>
+                                    <div class="form-group"><input type="password" class="form-control" placeholder="비밀번호" id="pwd" name="pwd"></div>
                                     <p class="text-uppercase"><a href="#" class="js-toggle-forms">비밀번호 찾기</a></p>
                                     <div class="clearfix"><input id="checkbox1" name="checkbox1" type="checkbox" checked="checked"> <label for="checkbox1">로그인 유지하기</label></div><button type="submit" class="btn">확인</button>
                                 </form>
@@ -56,11 +78,11 @@
                         <div id="recoverPasswordForm" class="d-none">
                             <h2 class="text-center">패스워드 찾기</h2>
                             <div class="form-wrapper">
-                                <p>아이디와 이름을 입력하면 가입했던 계정의 이메일로 인증번호가 전송됩니다.</p>
-                                <form action="#">
-                                    <div class="form-group"><input type="text" class="form-control" placeholder="아이디"></div>
-                                    <div class="form-group"><input type="password" class="form-control" placeholder="이름"></div>
-                                    <div class="btn-toolbar"><a href="#" class="btn btn--alt js-toggle-forms">취소</a> <button class="btn ml-1">확인</button></div>
+                                <p>아이디와 이름을 입력하면 가입했던 계정의 이메일로 인증주소가 전송됩니다.</p>
+                                <form method="post" id="emailFpwd" name="emailFpwd">
+                                    <div class="form-group"><input type="text" id="idF" name="idF" class="form-control" placeholder="아이디"></div>
+                                    <div class="form-group"><input type="text" id="nameF" name="nameF" class="form-control" placeholder="이름"></div>
+                                    <div class="btn-toolbar"><a href="#" class="btn btn--alt js-toggle-forms">취소</a> <button class="btn ml-1" onclick="FsaveFn();">확인</button></div>
                                 </form>
                             </div>
                         </div>

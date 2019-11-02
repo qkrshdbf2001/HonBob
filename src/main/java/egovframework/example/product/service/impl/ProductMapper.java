@@ -35,12 +35,16 @@ public interface ProductMapper {
 
 	List<EgovMap> selectOrderList(String ucode);
 
-	void delectOadressdetail(int id);
-	void delectOrderdetail(int id);
 	void delectOrders(int id);
 
 	List<EgovMap> selectReview(int pcode);
 
 	void delectProduct(int pcode);
+
+	void updateProduct(Map<String, Object> resMap);
+	void updateProductImage(Map<String, Object> resMap);
+	void delectProductImage(Map<String, Object> resMap);
+
+	void updateProductStock(String pcode);
 
 }

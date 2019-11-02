@@ -4,6 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import egovframework.example.member.Member;
 import egovframework.rte.psl.dataaccess.util.EgovMap;
 
@@ -24,5 +26,7 @@ public interface MemberService {
 	EgovMap memberInfo(String uid);
 
 	EgovMap addressInfo(String ucode);
+
+	EgovMap selectEamil(Map<String, Object> resMap);
 
 }

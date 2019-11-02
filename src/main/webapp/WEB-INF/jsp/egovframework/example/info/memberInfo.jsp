@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<script>
+$(function() {
+	$("#emailCheck").click(function() {
+		alert("가입한 이메일로  인증주소를 보냈습니다.");
+		location.href = "<c:url value='email.do?ucode=${memberInfo.ucode}&email=${memberInfo.email}'/>";
+	});
+});
+</script>    
 
 <div class="page-content">
         <div class="holder mt-0">
@@ -35,7 +45,7 @@
 	                                        <b>생년월일 : </b> ${memberInfo.birthdate}<br>
 											<b>이메일 : </b> ${memberInfo.email}
                                         </p>
-                                        <div class="mt-2 clearfix"><a href="#" class="link-icn js-show-form" data-form="#updateDetails"><i class="icon-pencil"></i>이메일변경</a></div>
+                                        <div class="mt-2 clearfix"><a href="#" id="emailCheck" class="link-icn js-show-form" data-form="#updateDetails"><i class="icon-pencil"></i>비밀번호 변경</a></div>
                                     </div>
                                 </div>
                             </div>
