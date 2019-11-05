@@ -39,7 +39,7 @@ public class MemberController {
 	@RequestMapping(value="login.do", method=RequestMethod.POST)
 	public String login(@RequestParam String userid,
 						@RequestParam String pwd,
-						Model model, HttpSession session) {
+						Model model, HttpSession session) throws Exception {
 		
 		String msg ="";
 		HashMap<String, Object> resMap = new HashMap<String, Object>();
@@ -84,7 +84,7 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value="sign1.do", method=RequestMethod.POST)
-	public String sign1(Member member, HttpSession session) throws ParseException {
+	public String sign1(Member member, HttpSession session) throws Exception {
 		SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-mm-dd");
 		System.out.println(member);
 		System.out.println(member.getBirthDayString());
@@ -139,7 +139,7 @@ public class MemberController {
 	
 	//맴버 정보
 	@RequestMapping(value="memberInfo.do")
-	public String memberInfo(HttpSession session, Model model) {
+	public String memberInfo(HttpSession session, Model model) throws Exception {
 		
 		if (session.getAttribute("ucode") == null) {
 			String msg = "로그인을 먼저 진행해주세요.";
@@ -156,7 +156,7 @@ public class MemberController {
 	
 	//주소 정보
 	@RequestMapping(value="addressInfo.do")
-	public String addressInfo(HttpSession session, Model model) {
+	public String addressInfo(HttpSession session, Model model) throws Exception {
 		
 		if (session.getAttribute("ucode") == null) {
 			String msg = "로그인을 먼저 진행해주세요.";

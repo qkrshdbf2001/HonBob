@@ -11,22 +11,22 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public interface MemberService {
 
-	List<EgovMap> selectMemberList();
+	List<EgovMap> selectMemberList() throws Exception;
 
-	EgovMap selectMember(String userid);
+	EgovMap selectMember(String userid) throws Exception;
 
-	void insertMember(Member member);
+	void insertMember(Member member) throws Exception;
 
-	void insertUzip(Member member);
+	void insertUzip(Member member) throws Exception;
 
-	EgovMap memberCheck(HashMap<String, Object> resMap);
+	EgovMap memberCheck(HashMap<String, Object> resMap) throws Exception;
 
-	List<EgovMap> AllMemberList(Map<String, Object> map);
+	List<EgovMap> AllMemberList(Map<String, Object> map) throws Exception;
 
-	EgovMap memberInfo(String uid);
+	EgovMap memberInfo(String uid) throws Exception;
 
-	EgovMap addressInfo(String ucode);
+	EgovMap addressInfo(String ucode) throws Exception;
 
-	EgovMap selectEamil(Map<String, Object> resMap);
+	EgovMap selectEamil(Map<String, Object> resMap) throws Exception;
 
 }

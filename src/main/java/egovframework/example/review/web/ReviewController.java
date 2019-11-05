@@ -27,7 +27,7 @@ public class ReviewController {
 	
 	@RequestMapping(value="reviewInsert.do", method=RequestMethod.GET)
 	public String reviewInsert(@RequestParam int id,
-							   Model model, HttpSession session) {
+							   Model model, HttpSession session) throws Exception {
 		
 		if (session.getAttribute("ucode") == null) {
 			String msg = "로그인을 먼저 진행해주세요.";
@@ -56,7 +56,7 @@ public class ReviewController {
 								   @RequestParam(required=false) int rscore,
 								   @RequestParam(required=false) MultipartFile rimage,
 								   @RequestParam(required=false) int pcode,
-								   MultipartHttpServletRequest muti, Model model, HttpSession session) {
+								   MultipartHttpServletRequest muti, Model model, HttpSession session) throws Exception {
 		
 		if (session.getAttribute("ucode") == null) {
 			String msg = "로그인을 먼저 진행해주세요.";

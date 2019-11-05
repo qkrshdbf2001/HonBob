@@ -9,8 +9,8 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 @Mapper("questionMapper")
 public interface QuestionMapper {
 
-	List<EgovMap> AllQuestionList();
+	List<EgovMap> AllQuestionList()  throws Exception;
 
-	void insertQuestion(Map<String, Object> resMap);
+	void insertQuestion(Map<String, Object> resMap) throws Exception;
 
 }

@@ -95,7 +95,7 @@ public class AdNoticeController {
 	}
 	
 	@RequestMapping("adNoticeDtl.do")
-	public String adNoticeDtl(@RequestParam int ncode, Model model) {
+	public String adNoticeDtl(@RequestParam int ncode, Model model) throws Exception {
 		System.out.println(ncode);
 		
 		EgovMap notice = noticeService.selectNotice(ncode);
@@ -111,7 +111,7 @@ public class AdNoticeController {
 	}
 	
 	@RequestMapping("adNoticeDel.do")
-	public String adNoticeDel(@RequestParam int ncode, Model model, HttpSession session) {
+	public String adNoticeDel(@RequestParam int ncode, Model model, HttpSession session) throws Exception {
 		int ccode = (int) session.getAttribute("ccode");
 		
 		System.out.println(ccode);

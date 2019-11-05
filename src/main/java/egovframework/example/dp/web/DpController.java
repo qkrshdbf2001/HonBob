@@ -29,6 +29,15 @@ public class DpController {
 		return "dp/dpBnnrMng.admin";
 	}
 	
+	@RequestMapping(value = "/dpBnnrMngInit.do")
+	public String bnnrMng(@RequestParam Map<String, Object> map, ModelMap model) {		
+		System.out.println(map);
+		
+		model.addAttribute("openParam", map);
+		
+		return "dp/dpBnnrMng.tiles";
+	}
+	
 	@RequestMapping(value = "/dpBnnrList.do", produces = "application/json; charset=utf8")
 	@ResponseBody
 	public String dpBnnrList(@RequestParam Map<String, Object> map) {
@@ -76,8 +85,9 @@ public class DpController {
 		} catch (Exception e) {
 			
 		}
-		System.out.println(bnMngInfo);
+		
 		model.addAttribute("bnMngInfo", bnMngInfo);
+		model.addAttribute("openParam", map);
 		
 		return "dp/dpBnnrReg.admin";
 	}

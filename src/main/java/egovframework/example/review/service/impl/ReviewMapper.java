@@ -9,8 +9,8 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 @Mapper("reviewMapper")
 public interface ReviewMapper {
 
-	EgovMap selectOrderName(Map<String, Object> resMap);
+	EgovMap selectOrderName(Map<String, Object> resMap) throws Exception;
 
-	void insertAddReview(Map<String, Object> resMap);
+	void insertAddReview(Map<String, Object> resMap) throws Exception;
 
 }

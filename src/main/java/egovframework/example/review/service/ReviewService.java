@@ -10,8 +10,8 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public interface ReviewService {
 
-	EgovMap selectOrderName(Map<String, Object> resMap);
+	EgovMap selectOrderName(Map<String, Object> resMap) throws Exception;
 
-	void addReviewData(Map<String, Object> resMap, MultipartFile[] file, MultipartHttpServletRequest muti);
+	void addReviewData(Map<String, Object> resMap, MultipartFile[] file, MultipartHttpServletRequest muti) throws Exception;
 
 }

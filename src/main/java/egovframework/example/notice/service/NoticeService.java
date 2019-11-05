@@ -11,18 +11,18 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 
 public interface NoticeService {
 
-	List<EgovMap> AllNoticeList(Map<String, Object> map);
+	List<EgovMap> AllNoticeList(Map<String, Object> map) throws Exception;
 
-	void saveAdNotice(Map<String, Object> resMap, MultipartFile[] file, MultipartHttpServletRequest muti);
+	void saveAdNotice(Map<String, Object> resMap, MultipartFile[] file, MultipartHttpServletRequest muti) throws Exception;
 
-	List<EgovMap> selectNoticeList();
+	List<EgovMap> selectNoticeList() throws Exception;
 
-	EgovMap selectNotice(int ncode);
+	EgovMap selectNotice(int ncode) throws Exception;
 
-	List<EgovMap> noticeImgList(int ncode);
+	List<EgovMap> noticeImgList(int ncode) throws Exception;
 
-	void addViews(int ncode);
+	void addViews(int ncode) throws Exception;
 
-	void delectNotice(int ncode);
+	void delectNotice(int ncode) throws Exception;
 
 }

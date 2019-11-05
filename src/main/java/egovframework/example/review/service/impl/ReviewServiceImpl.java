@@ -24,12 +24,12 @@ public class ReviewServiceImpl implements ReviewService {
 	private FileUpload fileupload;
 	
 	@Override
-	public EgovMap selectOrderName(Map<String, Object> resMap) {
+	public EgovMap selectOrderName(Map<String, Object> resMap) throws Exception {
 		return reviewMapper.selectOrderName(resMap);
 	}
 
 	@Override
-	public void addReviewData(Map<String, Object> resMap, MultipartFile[] file, MultipartHttpServletRequest muti) {
+	public void addReviewData(Map<String, Object> resMap, MultipartFile[] file, MultipartHttpServletRequest muti) throws Exception {
 		String[] fileName= fileupload.fileUpload(file, muti);
 		resMap.put("fileName", fileName[0]);
 		reviewMapper.insertAddReview(resMap);

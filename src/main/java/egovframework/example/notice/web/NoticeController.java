@@ -24,7 +24,7 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("notice.do")
-	public String notice(Model model) {
+	public String notice(Model model) throws Exception {
 		
 		List<EgovMap> noticeList = noticeService.selectNoticeList();
 		System.out.println(noticeList);
@@ -33,7 +33,7 @@ public class NoticeController {
 	}
 	
 	@RequestMapping("noticeDetail.do")
-	public String noticeDetail(Model model, @RequestParam(required=false, defaultValue="-1") int ncode) {
+	public String noticeDetail(Model model, @RequestParam(required=false, defaultValue="-1") int ncode) throws Exception {
 		
 		if(ncode == -1) return "redirect:notice.do";
 		

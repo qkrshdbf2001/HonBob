@@ -21,48 +21,48 @@ public class MemberServiceImpl implements MemberService{
 	private MemberMapper memberMapper;
 	
 	@Override
-	public List<EgovMap> selectMemberList() {
+	public List<EgovMap> selectMemberList() throws Exception {
 		return memberMapper.selectMemberList();
 	}
 
 	@Override
-	public EgovMap selectMember(String userid) {
+	public EgovMap selectMember(String userid) throws Exception {
 		return memberMapper.selectMember(userid);
 	}
 
 	@Override
-	public void insertMember(Member member) {
+	public void insertMember(Member member) throws Exception{
 		memberMapper.insertMember(member);
 	}
 
 	@Override
-	public void insertUzip(Member member) {
+	public void insertUzip(Member member) throws Exception {
 		memberMapper.insertUzip(member);
 	}
 
 	@Override
-	public EgovMap memberCheck(HashMap<String, Object> resMap) {
+	public EgovMap memberCheck(HashMap<String, Object> resMap) throws Exception {
 		return memberMapper.memberCheck(resMap);
 	}
 
 	@Override
-	public List<EgovMap> AllMemberList(Map<String, Object> map) {
+	public List<EgovMap> AllMemberList(Map<String, Object> map) throws Exception {
 		return memberMapper.AllMemberList(map);
 	}
 
 	@Override
-	public EgovMap memberInfo(String uid) {
+	public EgovMap memberInfo(String uid) throws Exception {
 		
 		return memberMapper.selectMemberCode(uid);
 	}
 
 	@Override
-	public EgovMap addressInfo(String ucode) {
+	public EgovMap addressInfo(String ucode) throws Exception {
 		return memberMapper.addressInfo(ucode);
 	}
 
 	@Override
-	public EgovMap selectEamil(Map<String, Object> resMap) {
+	public EgovMap selectEamil(Map<String, Object> resMap) throws Exception {
 		return memberMapper.selectEamil(resMap);
 	}
 

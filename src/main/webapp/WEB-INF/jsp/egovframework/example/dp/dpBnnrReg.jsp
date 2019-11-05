@@ -9,7 +9,6 @@
 -->
 
 <script>
-<script>
 
 	/*---------------------------------------------------------
 	 * 화면 이벤트
@@ -233,7 +232,6 @@
 	   }
 	   
 	   if (!gridValidChkFn()) {
-		   alert("값체크2");
 	      return;
 	   }
 	   
@@ -361,6 +359,15 @@
 		</div>
 		
 		<h2 class="tit">배너 등록</h2>
+		<form id="bnnrRegFrm" method="post">
+			<input type="hidden" name="srchBnnrMngNo"	value="<c:out value='${openParam.srchBnnrMngNo}'/>" />
+			<input type="hidden" name="srchTp"			value="<c:out value='${openParam.srchTp}'/>" />
+			<input type="hidden" name="srchSubj"		value="<c:out value='${openParam.subj}'/>" />
+			<input type="hidden" name="srchDpStrtDt"	value="<c:out value='${openParam.dpStrtDt}'/>" />
+			<input type="hidden" name="srchDpEndDt"		value="<c:out value='${openParam.dpEndDt}'/>" />
+			<input type="hidden" name="srchDpYn"		value="<c:out value='${openParam.srchDpYn}'/>" />
+			<input type="hidden" name="srchPage" 		value="<c:out value='${openParam.srchPage}'/>" />
+		</form>
 		
 		<div class="table-wrap type2 mgt-20">
 			<legend>배너 등록</legend>

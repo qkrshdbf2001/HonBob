@@ -17,12 +17,12 @@ public class QuestionImpl implements QuestionService{
 	private QuestionMapper questionMapper;
 	
 	@Override
-	public List<EgovMap> AllQuestionList() {
+	public List<EgovMap> AllQuestionList() throws Exception {
 		return questionMapper.AllQuestionList();
 	}
 
 	@Override
-	public void insertQuestion(Map<String, Object> resMap) {
+	public void insertQuestion(Map<String, Object> resMap) throws Exception {
 		questionMapper.insertQuestion(resMap);
 	}
 	

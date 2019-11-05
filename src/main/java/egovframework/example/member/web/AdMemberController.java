@@ -65,7 +65,7 @@ public class AdMemberController {
 	}
 	
 	@RequestMapping("adMemberData.do")
-	public String adMemberData(Member member, HttpSession session) throws ParseException {
+	public String adMemberData(Member member, HttpSession session) throws Exception {
 		SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-mm-dd");
 		member.setBirthDay(dateformat.parse(member.getBirthDayString()));
 		
@@ -83,7 +83,7 @@ public class AdMemberController {
 	}
 	
 	@RequestMapping("adMemberDtl.do")
-	public String MemberDtl(@RequestParam String ucode, Model model) {
+	public String MemberDtl(@RequestParam String ucode, Model model) throws Exception {
 		EgovMap memberInfo = memberService.memberInfo(ucode);
 		System.out.println(memberInfo);
 		model.addAttribute("memberInfo", memberInfo);

@@ -26,12 +26,12 @@ public class NoticeServiceImpl implements NoticeService {
 	private FileUpload fileupload;
 	
 	@Override
-	public List<EgovMap> AllNoticeList(Map<String, Object> map) {
+	public List<EgovMap> AllNoticeList(Map<String, Object> map) throws Exception {
 		return NoticeMapper.AllNoticeList(map);
 	}
 
 	@Override
-	public void saveAdNotice(Map<String, Object> resMap, MultipartFile[] file, MultipartHttpServletRequest muti) {
+	public void saveAdNotice(Map<String, Object> resMap, MultipartFile[] file, MultipartHttpServletRequest muti) throws Exception {
 		String[] fileName= fileupload.fileUpload(file, muti);
 		Map<String, Object> dtlmap = new HashMap<String, Object>();
 		
@@ -66,27 +66,27 @@ public class NoticeServiceImpl implements NoticeService {
 	}
 
 	@Override
-	public List<EgovMap> selectNoticeList() {
+	public List<EgovMap> selectNoticeList() throws Exception {
 		return NoticeMapper.selectNoticeList();
 	}
 
 	@Override
-	public EgovMap selectNotice(int ncode) {
+	public EgovMap selectNotice(int ncode) throws Exception {
 		return NoticeMapper.selectNotice(ncode);
 	}
 
 	@Override
-	public List<EgovMap> noticeImgList(int ncode) {
+	public List<EgovMap> noticeImgList(int ncode) throws Exception {
 		return NoticeMapper.noticeImgList(ncode);
 	}
 
 	@Override
-	public void addViews(int ncode) {
+	public void addViews(int ncode) throws Exception {
 		NoticeMapper.addViews(ncode);
 	}
 
 	@Override
-	public void delectNotice(int ncode) {
+	public void delectNotice(int ncode) throws Exception {
 		NoticeMapper.delNotice(ncode);
 	}
 

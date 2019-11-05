@@ -10,25 +10,25 @@ import egovframework.rte.psl.dataaccess.util.EgovMap;
 @Mapper("noticeMapper")
 public interface NoticeMapper {
 
-	List<EgovMap> AllNoticeList(Map<String, Object> map);
+	List<EgovMap> AllNoticeList(Map<String, Object> map) throws Exception;
 
-	void insertNotice(Map<String, Object> noticeBoard);
+	void insertNotice(Map<String, Object> noticeBoard) throws Exception;
 
-	void insertNoticeImage(Map<String, Object> dtlmap);
+	void insertNoticeImage(Map<String, Object> dtlmap) throws Exception;
 
-	List<EgovMap> selectNoticeList();
+	List<EgovMap> selectNoticeList() throws Exception;
 
-	EgovMap selectNotice(int ncode);
+	EgovMap selectNotice(int ncode) throws Exception;
 
-	List<EgovMap> noticeImgList(int ncode);
+	List<EgovMap> noticeImgList(int ncode) throws Exception;
 
-	void addViews(int ncode);
+	void addViews(int ncode) throws Exception;
 
-	void delNoticeImg(int ncode);
-	void delNotice(int ncode);
+	void delNoticeImg(int ncode) throws Exception;
+	void delNotice(int ncode) throws Exception;
 
-	void updateNotice(Map<String, Object> resMap);
-	void updateNoticeImage(Map<String, Object> dtlmap);
-	void delectNoticeImage(Map<String, Object> dtlmap);
+	void updateNotice(Map<String, Object> resMap) throws Exception;
+	void updateNoticeImage(Map<String, Object> dtlmap) throws Exception;
+	void delectNoticeImage(Map<String, Object> dtlmap) throws Exception;
 
 }

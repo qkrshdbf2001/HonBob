@@ -28,7 +28,7 @@ public class QuestionController {
 	}
 	
 	@RequestMapping("question.do") 
-	public String question(Model model) {
+	public String question(Model model) throws Exception {
 		List<EgovMap> questionList = questionService.AllQuestionList();
 		System.out.println(questionList);
 		model.addAttribute("questionList", questionList);
@@ -53,7 +53,7 @@ public class QuestionController {
 	
 	@RequestMapping(value="questionInsert.do", method=RequestMethod.POST) 
 	public String saveQuestion(@RequestParam String title, @RequestParam String content,
-								 Model model, HttpSession session) {
+								 Model model, HttpSession session) throws Exception {
 		
 		Map<String, Object> resMap = new HashMap<String, Object>();
 		
